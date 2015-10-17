@@ -13,8 +13,9 @@ import (
 
 func main(){
 	var mainHTTP wakeupHTTP
+	mainC := make(chan string)
 	fmt.Println("Starting service...")
-	mainHTTP.wHTTPstart()
+	mainHTTP.wHTTPstart(":8080", mainC)
 	mainHTTP.wHTTPstop()
 	fmt.Println("Starting SIP client...")
 
